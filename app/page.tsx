@@ -19,6 +19,8 @@ export default function Home() {
   const [newTaskText, setNewTaskText] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
 
+// Crea una nueva tarea cuando el usuario presiona Enter y el texto no está vacío
+function handleAddTask(e: React.KeyboardEvent<HTMLInputElement>) {
   function handleAddTask(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key !== "Enter") return;
 
@@ -58,6 +60,7 @@ export default function Home() {
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
           onKeyDown={handleAddTask}
+	  maxLength={100}
           />
 
           {/* Lista de tareas */}
