@@ -17,6 +17,7 @@ export default function Home() {
     { id: 2, text: "Entregar trabajo", completed: false },
   ]);
   const [newTaskText, setNewTaskText] = useState("");
+  const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
 
   function handleAddTask(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key !== "Enter") return;
@@ -81,16 +82,38 @@ export default function Home() {
         }
       />
 
-      <span
-        className={
-          task.completed
-            ? "text-slate-400 line-through"
-            : "text-slate-700"
-        }
-      >
-        {task.text}
-      </span>
-    </div>
+      {editingTaskId === task.id ? (
+  <input
+    type="text"
+    value={task.text}
+    autoFocus
+    className="rounded border border-blue-300 px-2 py-1 text-slate-800 outline-none"
+    onChange={(e) =>
+      setTasks((prevTasks) =>
+        prevTasks.map((t) =>
+          t.id === task.id ? { ...t, text: e.target.value } : t
+        )
+      )
+    }
+    onBlur={() => setEditingTaskId(null)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        setEditingTaskId(null);
+      }
+    }}
+  />
+) : (
+  <span
+    onClick={() => setEditingTaskId(task.id)}
+    className={
+      task.completed
+        ? "cursor-pointer text-slate-400 line-through"
+        : "cursor-pointer text-slate-700"
+    }
+  >
+    {task.text}
+  </span>
+)}    </div>
 
     <button
       type="button"
