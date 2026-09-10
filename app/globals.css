@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.completed-task {
+  text-decoration: line-through;
+  color: #64748b;
+}
