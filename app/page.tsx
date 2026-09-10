@@ -1,4 +1,21 @@
+
+
+
+"use client";
+
+import { useState } from "react";
+
+type Task = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
 export default function Home() {
+  const [tasks, setTasks] = useState<Task[]>([
+    { id: 1, text: "Estudiar para el examen", completed: false },
+    { id: 2, text: "Entregar trabajo", completed: false },
+  ]);
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-10">
       <div className="mx-auto max-w-2xl">
