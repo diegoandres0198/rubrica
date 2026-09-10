@@ -87,6 +87,7 @@ export default function Home() {
     type="text"
     value={task.text}
     autoFocus
+    maxLength={100}
     className="rounded border border-blue-300 px-2 py-1 text-slate-800 outline-none"
     onChange={(e) =>
       setTasks((prevTasks) =>
