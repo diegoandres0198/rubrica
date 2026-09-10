@@ -62,50 +62,32 @@ export default function Home() {
           {/* Lista de tareas */}
           <div className="space-y-3">
 
-            {/* Tarea 1 */}
-            <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50">
+            {tasks.map((task) => (
+  <div
+    key={task.id}
+    className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50"
+  >
+    <div className="flex items-center gap-3">
+      <input
+        type="checkbox"
+        className="h-5 w-5 cursor-pointer accent-blue-600"
+        checked={task.completed}
+        readOnly
+      />
 
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  className="h-5 w-5 cursor-pointer accent-blue-600"
-                />
+      <span className="text-slate-700">
+        {task.text}
+      </span>
+    </div>
 
-                <span className="text-slate-700">
-                  Estudiar para el examen
-                </span>
-              </div>
-
-              <button
-                type="button"
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-500"
-              >
-                Eliminar
-              </button>
-            </div>
-
-            {/* Tarea 2 */}
-            <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50">
-
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  className="h-5 w-5 cursor-pointer accent-blue-600"
-                />
-
-                <span className="text-slate-700">
-                  Entregar trabajo
-                </span>
-              </div>
-
-              <button
-                type="button"
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-500"
-              >
-                Eliminar
-              </button>
-            </div>
-
+    <button
+      type="button"
+      className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-500"
+    >
+      Eliminar
+    </button>
+  </div>
+))}
           </div>
         </div>
       </div>
