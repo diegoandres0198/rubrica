@@ -57,6 +57,7 @@ export default function Home() {
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
           onKeyDown={handleAddTask}
+	  maxLength={100}
           />
 
           {/* Lista de tareas */}
