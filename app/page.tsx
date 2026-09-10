@@ -96,7 +96,14 @@ export default function Home() {
         )
       )
     }
-    onBlur={() => setEditingTaskId(null)}
+    onBlur={() => {
+  setTasks((prevTasks) =>
+    prevTasks.map((t) =>
+      t.id === task.id ? { ...t, text: t.text.trim() } : t
+    )
+  );
+  setEditingTaskId(null);
+}}
     onKeyDown={(e) => {
       if (e.key === "Enter") {
         setEditingTaskId(null);
