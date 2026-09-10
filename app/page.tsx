@@ -62,7 +62,7 @@ export default function Home() {
           {/* Lista de tareas */}
           <div className="space-y-3">
 
-            {tasks.map((task) => (
+{tasks.map((task) => (
   <div
     key={task.id}
     className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50"
@@ -72,10 +72,22 @@ export default function Home() {
         type="checkbox"
         className="h-5 w-5 cursor-pointer accent-blue-600"
         checked={task.completed}
-        readOnly
+        onChange={() =>
+          setTasks((prevTasks) =>
+            prevTasks.map((t) =>
+              t.id === task.id ? { ...t, completed: !t.completed } : t
+            )
+          )
+        }
       />
 
-      <span className="text-slate-700">
+      <span
+        className={
+          task.completed
+            ? "text-slate-400 line-through"
+            : "text-slate-700"
+        }
+      >
         {task.text}
       </span>
     </div>
