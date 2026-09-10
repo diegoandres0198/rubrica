@@ -16,6 +16,23 @@ export default function Home() {
     { id: 1, text: "Estudiar para el examen", completed: false },
     { id: 2, text: "Entregar trabajo", completed: false },
   ]);
+  const [newTaskText, setNewTaskText] = useState("");
+
+  function handleAddTask(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key !== "Enter") return;
+
+    const trimmedText = newTaskText.trim();
+    if (trimmedText === "") return;
+
+    const newTask: Task = {
+      id: Date.now(),
+      text: trimmedText,
+      completed: false,
+    };
+
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setNewTaskText("");
+  }
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-10">
       <div className="mx-auto max-w-2xl">
