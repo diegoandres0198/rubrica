@@ -54,6 +54,9 @@ export default function Home() {
             type="text"
             placeholder="Escribe una tarea y presiona Enter..."
             className="mb-6 w-full rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
+          value={newTaskText}
+          onChange={(e) => setNewTaskText(e.target.value)}
+          onKeyDown={handleAddTask}
           />
 
           {/* Lista de tareas */}
