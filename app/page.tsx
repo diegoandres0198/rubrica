@@ -29,6 +29,7 @@ export default function Home() {
     setNewTaskText("");
   }
 
+
   function toggleTask(id: string) {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -37,6 +38,7 @@ export default function Home() {
     );
   }
 
+ 
   function deleteTask(id: string) {
     const taskToDelete = tasks.find((task) => task.id === id);
     if (!taskToDelete) return;
@@ -52,6 +54,7 @@ export default function Home() {
           Mi lista de tareas
         </h1>
 
+       
         <div className="flex gap-2">
           <input
             type="text"
@@ -69,6 +72,7 @@ export default function Home() {
           </button>
         </div>
 
+        
         <ul className="flex flex-col gap-2">
           {tasks.length === 0 && (
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -99,6 +103,7 @@ export default function Home() {
                 </span>
               </div>
 
+            
               <button
                 onClick={() => deleteTask(task.id)}
                 className="rounded px-2 py-1 text-sm text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950"
