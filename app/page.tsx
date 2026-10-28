@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-const x = ;
+
 type Task = {
   id: string;
   text: string;
