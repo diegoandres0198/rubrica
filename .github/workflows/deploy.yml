@@ -16,7 +16,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - run: npm ci -f
 
       - name: Build con assetPrefix hacia S3
         run: npm run build
